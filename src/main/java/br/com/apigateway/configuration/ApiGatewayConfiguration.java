@@ -17,6 +17,10 @@ public class ApiGatewayConfiguration {
                                 .addRequestHeader("hello", "word")
                                 .addRequestParameter("hello", "word"))
                         .uri("http://httpbin.org:80"))
+//                .route(p -> p
+//                        .path("/login/**")
+//                        .uri("lb://login")
+//                )
                 .route(p -> p
                         .path("/cambio/**")
                         .uri("lb://cambio-service"))
