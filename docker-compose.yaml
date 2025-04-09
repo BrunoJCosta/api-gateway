@@ -1,0 +1,20 @@
+networks:
+  ms:
+    name: ms-network
+    driver: bridge
+    external: true
+
+services:
+  back_1:
+    build:
+      context: .
+    container_name: api-gateway
+    image: img_api_gateway_java
+    ports:
+      - "8765:8765"
+    expose:
+      - 8765
+    networks:
+      - ms
+    environment:
+      HOST_EUREKA: eureka
