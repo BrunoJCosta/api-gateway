@@ -17,12 +17,12 @@ spring:
         - id: cambio
           uri: lb://cambio-service
           predicates:
-            - Path=cambio/**
+            - Path=/cambio/**
         - id: book
           uri: lb://book-service
           predicates:
-            - Path=book/**
+            - Path=/book/**
         - id: estoque
           uri: lb://estoque-server
           predicates:
-            - Path=estoque/**
+            - Path=/estoque/**
