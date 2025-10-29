@@ -8,9 +8,21 @@ eureka:
 spring:
   application:
     name: api-gateway
-#  cloud:
-#    gateway:
-#      discovery:
-#        locator:
-#          lower-case-service-id: true
-#          enabled: true
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: cambio
+          uri: lb://cambio-service
+          predicates:
+            - Path=/cambio/**
+        - id: book
+          uri: lb://book-service
+          predicates:
+            - Path=/book/**
+        - id: estoque
+          uri: lb://estoque-server
+          predicates:
+            - Path=/estoque/**
